@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "PlusJakartaSans";
+  src: local("PlusJakartaSans"),
+    url('/public/fonts/PlusJakartaSans-VariableFont_wght.ttf') format("truetype");
+}
+
+html {
+  font-family: "PlusJakartaSans";
+  font-weight: light;
+}
