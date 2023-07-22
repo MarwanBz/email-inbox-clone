@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
-    <div class="sidebar">
-      <SideBar />
+    <div class="sidebar-container">
+      <SideBar inbox="Inbox"/>
     </div>
     <div class="content">
       <slot />
@@ -16,7 +16,7 @@
   height: 100vh;
 }
 
-.sidebar {
+.sidebar-container {
   position: relative;
   z-index: 1;
 }

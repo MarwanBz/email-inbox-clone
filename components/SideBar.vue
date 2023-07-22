@@ -1,7 +1,7 @@
 <script setup>
 import { reactive, computed } from 'vue';
 const route = useRoute();
-
+const props = defineProps(["inbox"])
 
 console.log(route.path)
 </script>
@@ -17,7 +17,7 @@ console.log(route.path)
           <li :class={isActive}>
             <div>
               <i ><img src="../assets/icons/inbox-01.png" alt="" /></i
-              ><NuxtLink to="/">Inbox</NuxtLink>
+              ><NuxtLink to="/">{{inbox}}</NuxtLink>
             </div>
             <span>10</span>
           </li>
