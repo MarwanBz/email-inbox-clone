@@ -1,79 +1,80 @@
-[
-  {
-    "id": 1,
-    "title": "Welcome to our newsletter!",
-    "content": "Thank you for subscribing to our newsletter! We'll be sending you regular updates on news and events related to our company and industry. Stay tuned!",
-    "isRead": false,
-    "isSelected": false
-  },
-  {
-    "id": 2,
-    "title": "Important information about your account",
-    "content": "We've noticed some unusual activity on your account. Please log in to your account and review your recent transactions to ensure that they are legitimate. If you suspect that your account has been compromised, please contact our customer support team immediately.",
-    "isRead": false,
-    "isSelected": false
-  },
-  {
-    "id": 3,
-    "title": "Invitation to our upcoming event",
-    "content": "You're invited to attend our upcoming product launch event on September 15th. This event will showcase our latest products and services, and provide you with an opportunity to network with other industry professionals. Please RSVP by September 1st to confirm your attendance.",
-    "isRead": false,
-    "isSelected": false
-  },
-  {
-    "id": 4,
-    "title": "Your order has been shipped",
-    "content": "We're happy to inform you that your order has been shipped and is on its way. You can track your order using the tracking number provided in your confirmation email. If you have any questions or concerns, please don't hesitate to contact our customer support team.",
-    "isRead": false,
-    "isSelected": false
-  },
-  {
-    "id": 5,
-    "title": "New article on our blog",
-    "content": "We've just published a new article on our blog discussing the latest trends and developments in our industry. Check it out and let us know what you think!",
-    "isRead": false,
-    "isSelected": false
-  },
-  {
-    "id": 6,
-    "title": "Reminder: Your appointment is tomorrow",
-    "content": "This is a friendly reminder that you have an appointment scheduled for tomorrow at our downtown office. Please arrive on time and bring any necessary documents or materials. If you need to reschedule or cancel your appointment, please contact us as soon as possible.",
-    "isRead": false,
-    "isSelected": false
-  },
-  {
-    "id": 7,
-    "title": "New product announcement",
-    "content": "We're excited to announce the launch of our latest product, which is designed to help businesses streamline their operations and increase productivity. Contact us today to learn more!",
-    "isRead": false,
-    "isSelected": false
-  },
-  {
-    "id": 8,
-    "title": "Feedback requested",
-    "content": "We value your opinion and would appreciate your feedback on your recent experience with our company. Please take a few minutes to complete our survey, which will help us improve our products and services in the future.",
-    "isRead": false,
-    "isSelected": false
-  },
-  {
-    "id": 9,
-    "title": "You've been invited to join our team",
-    "content": "We're impressed by your skills and experience, and we'd like to invite you to join our team. We believe that you would be a valuable asset to our company and look forward to discussing this opportunity with you in more detail.",
-    "isRead": false,
-    "isSelected": false
-  },
-  {
-    "id": 10,
-    "title": "New job openings",
-    "content": "We're currently hiring for several positions in our company, including sales, marketing, and customer support. If you're interested in joining our team, please visit our careers page to learn more and apply.",
-    "isRead": false,
-    "isSelected": false
-  },
-  {
-    "id": 11,
-    "title": "Your subscription has expired",
-    "content": "We're sorry to inform you that your subscription has expired. If you'd like to continue receiving our updates and newsletters, please visit our website and renew your subscription.",
-    "isRead": false,
-    "isSelected": false
-  }
-]
+  [
+    {
+      "id": 1,
+      "title": "Welcome to our newsletter!",
+      "content": "Thank you for subscribing to our newsletter! We'll be sending you regular updates on news and events related to our company and industry. Stay tuned!",
+      "isRead": false,
+      "isSelected": false
+    },
+    {
+      "id": 2,
+      "title": "Important information about your account",
+      "content": "We've noticed some unusual activity on your account. Please log in to your account and review your recent transactions to ensure that they are legitimate. If you suspect that your account has been compromised, please contact our customer support team immediately.",
+      "isRead": false,
+      "isSelected": false
+    },
+    {
+      "id": 3,
+      "title": "Invitation to our upcoming event",
+      "content": "You're invited to attend our upcoming product launch event on September 15th. This event will showcase our latest products and services, and provide you with an opportunity to network with other industry professionals. Please RSVP by September 1st to confirm your attendance.",
+      "isRead": false,
+      "isSelected": false
+    },
+    {
+      "id": 4,
+      "title": "Your order has been shipped",
+      "content": "We're happy to inform you that your order has been shipped and is on its way. You can track your order using the tracking number provided in your confirmation email. If you have any questions or concerns, please don't hesitate to contact our customer support team.",
+      "isRead": false,
+      "isSelected": false
+    },
+    {
+      "id": 5,
+      "title": "New article on our blog",
+      "content": "We've just published a new article on our blog discussing the latest trends and developments in our industry. Check it out and let us know what you think!",
+      "isRead": false,
+      "isSelected": false
+    },
+    {
+      "id": 6,
+      "title": "Reminder: Your appointment is tomorrow",
+      "content": "This is a friendly reminder that you have an appointment scheduled for tomorrow at our downtown office. Please arrive on time and bring any necessary documents or materials. If you need to reschedule or cancel your appointment, please contact us as soon as possible.",
+      "isRead": false,
+      "isSelected": false
+    },
+    {
+      "id": 7,
+      "title": "New product announcement",
+      "content": "We're excited to announce the launch of our latest product, which is designed to help businesses streamline their operations and increase productivity. Contact us today to learn more!",
+      "isRead": false,
+      "isSelected": false
+    },
+    {
+      "id": 8,
+      "title": "Feedback requested",
+      "content": "We value your opinion and would appreciate your feedback on your recent experience with our company. Please take a few minutes to complete our survey, which will help us improve our products and services in the future.",
+      "isRead": false,
+      "isSelected": false
+    },
+    {
+      "id": 9,
+      "title": "You've been invited to join our team",
+      "content": "We're impressed by your skills and experience, and we'd like to invite you to join our team. We believe that you would be a valuable asset to our company and look forward to discussing this opportunity with you in more detail.",
+      "isRead": false,
+      "isSelected": false
+    },
+    {
+      "id": 10,
+      "title": "New job openings",
+      "content": "We're currently hiring for several positions in our company, including sales, marketing, and customer support. If you're interested in joining our team, please visit our careers page to learn more and apply.",
+      "isRead": false,
+      "isSelected": false
+    },
+    {
+      "id": 11,
+      "title": "Your subscription has expired",
+      "content": "We're sorry to inform you that your subscription has expired. If you'd like to continue receiving our updates and newsletters, please visit our website and renew your subscription.",
+      "isRead": false,
+      "isSelected": false
+    }
+  ]
+

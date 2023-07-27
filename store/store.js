@@ -1,32 +1,32 @@
 import { defineStore } from "pinia";
+import emails from "../data/data.json"
 
-export const useCounterStore = defineStore("counter", {
-  state: () => ({
-    count: 0,
-  }),
-});
-// main is the name of the store. It is unique across your application
-// and will appear in devtools
-// export const useMainStore = defineStore("main", {
-//   // a function that returns a fresh state
-//   state: () => ({
-//     counter: 0,
-//     name: "Eduardo",
-//   }),
-//   // optional getters
-//   getters: {
-//     // getters receive the state as first parameter
-//     doubleCounter: (state) => state.counter * 2,
-//     // use getters in other getters
-//     doubleCounterPlusOne() {
-//       return this.doubleCounter + 1;
-//     },
-//   },
-//   // optional actions
-//   actions: {
-//     reset() {
-//       // `this` is the store instance
-//       this.counter = 0;
-//     },
-//   },
+// turn the json array of objects into a valid js array
+console.log(typeof(emails));
+export const useEmailStore = defineStore("emails" , {
+  state: ()=> {
+    return {
+      count: 0,
+      mystate: "state",
+      emails : []
+    }
+  },
+  actions: {
+    getEmails() {
+      this.emails = emails
+    }
+  }
+})
+
+
+// export const useCounterStore = defineStore("counter", () => {
+//   const count = ref(10);
+//   const name = ref("Eduardo");
+//   const doubleCount = computed(() => count.value * 2);
+  
+//   function increment() {
+//     count.value++;
+//   }
+
+//   return { count, name, doubleCount, increment };
 // });

@@ -1,9 +1,9 @@
 <script setup>
-import { reactive, computed } from 'vue';
+import { reactive, computed } from "vue";
 const route = useRoute();
-const props = defineProps(["inbox"])
+const props = defineProps(["inbox"]);
 
-console.log(route.path)
+console.log(route.path);
 </script>
 
 <template>
@@ -14,10 +14,10 @@ console.log(route.path)
     <aside>
       <ul>
         <div>
-          <li :class={isActive}>
+          <li :class="{ isActive }">
             <div>
-              <i ><img src="../assets/icons/inbox-01.png" alt="" /></i
-              ><NuxtLink to="/">{{inbox}}</NuxtLink>
+              <i><img src="../assets/icons/inbox-01.png" alt="" /></i
+              ><NuxtLink to="/">{{ inbox }}</NuxtLink>
             </div>
             <span>10</span>
           </li>
@@ -45,8 +45,9 @@ console.log(route.path)
 .sidebar {
   background-color: #f8fafc;
   padding: 20px 0;
-  position: relative;
   z-index: 1;
+  position: sticky;
+  top: 0;
 }
 
 .logo {
@@ -67,7 +68,7 @@ aside {
 aside ul:first-child {
   display: flex;
   flex-direction: column;
-  height: 88vh;
+  height: 85vh;
   justify-content: space-between;
   padding: 0 10px;
 }

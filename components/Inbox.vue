@@ -13,6 +13,7 @@
         <p class="action-txt">Archived (a)</p>
       </div>
     </div>
+    <EmailList />
   </div>
 </template>
 
