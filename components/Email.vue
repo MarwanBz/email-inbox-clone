@@ -1,19 +1,22 @@
 <script setup>
 import { ref } from "vue";
 import { useEmailStore } from "~/store/store";
-  const emailStore = useEmailStore();
-emailStore.getEmails()
+const emailStore = useEmailStore();
+emailStore.getEmails();
 
-  function toggleEmailSelection(email) {
-    emailStore.toggleSelected(email);
-    email.isSelected = !email.isSelected;
-    const checkbox = event.currentTarget.querySelector(".checkbox");
-    checkbox.checked = email.isSelected;
-  }
-  
-console.log(emailStore.emails)
+function toggleEmailSelection(email, event) {
+  // Toggle email.selected.
+  emailStore.toggleSelected(email);
+  // Invert email.isSelected.
+  email.isSelected = !email.isSelected;
+  // Get the checkbox element.
+  const checkbox = event.currentTarget.querySelector(".checkbox");
+  // Set the checkbox checked state.
+  checkbox.checked = email.isSelected;
+}
+
+console.log(emailStore.emails);
 </script>
-
 
 <template>
   <div class="email-container">
@@ -24,7 +27,7 @@ console.log(emailStore.emails)
       class="email"
       v-for="email in emailStore.emails"
       :key="email.id"
-      @click="toggleEmailSelection(email)"
+      @click="toggleEmailSelection(email, $event)"
     >
       <input
         :checked="email.isSelected"
