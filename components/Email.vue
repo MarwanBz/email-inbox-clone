@@ -1,31 +1,68 @@
 <script setup>
+import { ref } from "vue";
 import { useEmailStore } from "~/store/store";
-const emailStore = useEmailStore();
-emailStore.getEmails();
+  const emailStore = useEmailStore();
+emailStore.getEmails()
+
+  function toggleEmailSelection(email) {
+    emailStore.toggleSelected(email);
+    email.isSelected = !email.isSelected;
+    const checkbox = event.currentTarget.querySelector(".checkbox");
+    checkbox.checked = email.isSelected;
+  }
+  
+console.log(emailStore.emails)
 </script>
+
+
 <template>
   <div class="email-container">
-    <li class="email" v-for="email in emailStore.emails" :key="email.id">
-      <input class="checkbox" type="checkbox" name="" id="" />
+    <div v-if="emailStore.isLoading">Loading....</div>
+    <li
+      v-else
+      :class="email.isRead"
+      class="email"
+      v-for="email in emailStore.emails"
+      :key="email.id"
+      @click="toggleEmailSelection(email)"
+    >
+      <input
+        :checked="email.isSelected"
+        class="checkbox"
+        type="checkbox"
+        @click.stop
+      />
       <p>{{ email.title }}</p>
+      <p>{{ email.isSelected }}</p>
     </li>
   </div>
 </template>
 
 <style>
 .email {
-  border-bottom:1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
   border-top: 1px solid #e5e7eb;
   display: flex;
   align-items: center;
-  padding: 20px 0;
+  padding: 20px 24px;
+  color: #000000;
 }
-
+.email:hover {
+  background: #d1e2ff;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
 .email-container .email p {
   padding-left: 12px;
+  color: #000000;
 }
 
 .checkbox {
   scale: 1.5;
+}
+
+.isRead {
+  opacity: 0.5;
 }
 </style>

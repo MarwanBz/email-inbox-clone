@@ -1,28 +1,60 @@
+<script setup>
+import { storeToRefs } from "pinia";
+
+import { useEmailStore } from "~/store/store";
+const emailStore = useEmailStore();
+// const emailRefs = storeToRefs(useEmailStore());
+const plural = "s";
+// const { selectedEmails } = useEmailStore();
+const markRead = () => {
+  console.log("read");
+  emailStore.selectedEmails.forEach((email) => {
+    email.isRead = true;
+  });
+};
+// const toTrue = toRaw(selectedEmails.emails)
+//   console.log(toTrue.forEach((email)=>{
+//     email[0]
+//   }));
+</script>
+
 <template>
   <div class="container">
     <h1 class="title">Inbox</h1>
     <div class="modal-actions">
       <div class="email-selected">
-        <input class="checkbox" type="checkbox" name="" id="">
-        <p class="selected-txt">Email Selected <span> (10)</span></p>
+        <input
+          class="checkbox"
+          type="checkbox"
+          name=""
+          v-model="emailStore.isSelectAllChecked"
+          :value="emailStore.updateSelectAllChecked()"
+          id=""
+          @change="emailStore.selectAll()"
+        />
+        <p class="selected-txt">
+          <span>{{ emailStore.selectedEmails.length >= 11 ? "All" : "" }}</span>
+          Email{{
+            emailStore.selectedEmails.length >= emailStore.emails.length
+              ? plural
+              : ""
+          }}
+          Selected
+          <span>({{ emailStore.emailsNumber }})</span>
+        </p>
       </div>
       <div class="read-and-archived">
         <img src="../assets/icons/mail-04.png" alt="" />
-        <p class="action-txt">Mark as Read (r)</p>
+        <p @click="markRead()" class="action-txt">Mark as Read (r)</p>
         <img src="../assets/icons/trash-01.png" alt="" />
         <p class="action-txt">Archived (a)</p>
       </div>
     </div>
-    <EmailList />
   </div>
+  <EmailList />
 </template>
 
-<script>
-export default {};
-</script>
-
 <style>
-
 .container {
   padding: 24px 24px 0 24px;
 }
@@ -43,5 +75,4 @@ export default {};
 .email-selected .checkbox {
   scale: 1.5;
 }
-
 </style>

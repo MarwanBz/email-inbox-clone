@@ -3,7 +3,6 @@ import { reactive, computed } from "vue";
 const route = useRoute();
 const props = defineProps(["inbox"]);
 
-console.log(route.path);
 </script>
 
 <template>
@@ -48,6 +47,7 @@ console.log(route.path);
   z-index: 1;
   position: sticky;
   top: 0;
+  border: 1px solid #e5e7eb;
 }
 
 .logo {
