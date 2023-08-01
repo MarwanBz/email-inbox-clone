@@ -1,17 +1,18 @@
 <script setup>
 import { storeToRefs } from "pinia";
-
+import "../assets/styles/global.css"
 import { useEmailStore } from "~/store/store";
 const emailStore = useEmailStore();
 // const emailRefs = storeToRefs(useEmailStore());
 const plural = "s";
 // const { selectedEmails } = useEmailStore();
-const markRead = () => {
-  console.log("read");
-  emailStore.selectedEmails.forEach((email) => {
-    email.isRead = true;
-  });
-};
+// const markRead = () => {
+//   console.log("read");
+//   emailStore.selectedEmails.forEach((email) => {
+//     email.isRead = true;
+    
+//   });
+// };
 // const toTrue = toRaw(selectedEmails.emails)
 //   console.log(toTrue.forEach((email)=>{
 //     email[0]
@@ -45,7 +46,7 @@ const markRead = () => {
       </div>
       <div class="read-and-archived">
         <img src="../assets/icons/mail-04.png" alt="" />
-        <p @click="markRead()" class="action-txt">Mark as Read (r)</p>
+        <p @click="emailStore.markRead()" class="action-txt">Mark as Read (r)</p>
         <img src="../assets/icons/trash-01.png" alt="" />
         <p class="action-txt">Archived (a)</p>
       </div>

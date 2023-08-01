@@ -1,9 +1,9 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import { useEmailStore } from "~/store/store";
+const emailStore = useEmailStore();
 
 // const emailStore = toRaw(useEmailStore())
-const emailStore = useEmailStore();
 // const {emails} = useEmailStore()
 // const {emails} = storeToRefs(useEmailStore())
 // console.log(emailStore.emails);
@@ -17,6 +17,7 @@ const emailStore = useEmailStore();
 function receiver(param) {
   console.log("mmm",param);
 }
+emailStore.getEmails();
 </script>
 
 <template>

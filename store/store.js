@@ -53,6 +53,11 @@ export const useEmailStore = defineStore("emails", {
       this.isSelectAllChecked = isAllSelected;
       this.isSelectAllChecked = isAllSelected;
     },
+    markRead() {
+      this.selectedEmails.forEach((email) => {
+        email.isRead = true;
+      });
+    },
   },
 
   getters: {

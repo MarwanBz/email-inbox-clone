@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { useEmailStore } from "~/store/store";
 const emailStore = useEmailStore();
-emailStore.getEmails();
+
 
 function toggleEmailSelection(email, event) {
   // Toggle email.selected.
@@ -19,11 +19,11 @@ console.log(emailStore.emails);
 </script>
 
 <template>
-  <div class="email-container">
+  <div class="email-container" >
     <div v-if="emailStore.isLoading">Loading....</div>
     <li
       v-else
-      :class="email.isRead"
+      :class="{ 'is-read': email.isRead }"
       class="email"
       v-for="email in emailStore.emails"
       :key="email.id"

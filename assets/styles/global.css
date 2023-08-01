@@ -24,3 +24,7 @@ html {
 input[type="checkbox"] {
   border-color: red;
 }
+
+.is-read {
+  opacity: 0.5;
+}
