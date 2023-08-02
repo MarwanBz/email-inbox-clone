@@ -2,24 +2,26 @@
 import { ref } from "vue";
 import { useEmailStore } from "~/store/store";
 const emailStore = useEmailStore();
+const checkboxRef = ref(null);
 
-
-function toggleEmailSelection(email, event) {
+function toggleEmailSelection(email) {
   // Toggle email.selected.
   emailStore.toggleSelected(email);
   // Invert email.isSelected.
   email.isSelected = !email.isSelected;
   // Get the checkbox element.
-  const checkbox = event.currentTarget.querySelector(".checkbox");
+  const checkbox = checkboxRef.value;
   // Set the checkbox checked state.
-  checkbox.checked = email.isSelected;
+  if (checkbox) {
+    checkbox.checked = email.isSelected;
+  }
 }
 
 console.log(emailStore.emails);
 </script>
 
 <template>
-  <div class="email-container" >
+  <div class="email-container">
     <div v-if="emailStore.isLoading">Loading....</div>
     <li
       v-else
@@ -27,13 +29,15 @@ console.log(emailStore.emails);
       class="email"
       v-for="email in emailStore.emails"
       :key="email.id"
-      @click="toggleEmailSelection(email, $event)"
+      @click="toggleEmailSelection(email)"
     >
       <input
+        ref="checkbox"
         :checked="email.isSelected"
         class="checkbox"
         type="checkbox"
         @click.stop
+        @change="toggleEmailSelection(email)"
       />
       <p>{{ email.title }}</p>
       <p>{{ email.isSelected }}</p>

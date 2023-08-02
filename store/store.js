@@ -11,6 +11,7 @@ export const useEmailStore = defineStore("emails", {
       selectedEmails: ref([]),
       emails: ref([]),
       isLoading: false,
+      showEmailModal : false
     };
   },
 
@@ -20,6 +21,7 @@ export const useEmailStore = defineStore("emails", {
       this.emails = (await import("@/data/data.json")).default;
       this.isLoading = false;
     },
+    
     toggleSelected(email) {
       const isSelected = this.isSelected;
       const index = this.selectedEmails.indexOf(email);
@@ -56,6 +58,11 @@ export const useEmailStore = defineStore("emails", {
     markRead() {
       this.selectedEmails.forEach((email) => {
         email.isRead = true;
+      });
+    },
+    emailDetails() {
+      this.selectedEmails.forEach((email) => {
+        console.log(email.title)
       });
     },
   },

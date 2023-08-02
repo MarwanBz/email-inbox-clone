@@ -15,23 +15,15 @@ const emailStore = useEmailStore();
 //   console.log()
 // }
 function receiver(param) {
-  console.log("mmm",param);
+  console.log("mmm", param);
 }
 emailStore.getEmails();
 </script>
 
 <template>
   <div>
-    <Email
-      @checkbox-change="
-        () => {
-          console.log('change works on me li');
-        }
-      "
-      @test-event="
-        receiver((i+'d'))
-      "
-    />
+    <Email @click="emailStore.showEmailModal = !emailStore.showEmailModal" />
+    <div v-if="emailStore.showEmailModal"><EmailModal /></div>
     <!-- <div v-for="email in emailStore.emails" :key="email.id">
       {{ email.title }}
     </div> -->

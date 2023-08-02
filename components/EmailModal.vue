@@ -1,16 +1,20 @@
 <template>
-  <div class="modal-overlay">
-    <div class="modal">
+  <div
+    class="modal-overlay"
+    :class="{ hidden: !emailStore.showEmailModal }"
+    @click="closeModal()"
+  >
+    <div @click.stop="console.log('modal clicked')" class="modal">
       <div class="details-container">
         <div class="details">
           <div class="modal-actions">
-            <div class="close">
+            <div @click="closeModal" class="close">
               <img src="../assets/icons/x-close.svg" alt="" />
               <p class="action-txt">Close (Esc)</p>
             </div>
             <div class="read-and-archived">
               <img src="../assets/icons/mail-04.png" alt="" />
-              <p class="action-txt">Mark as Read (r)</p>
+              <p @click="emailStore.markRead()" class="action-txt">Mark as Read (r)</p>
               <img src="../assets/icons/trash-01.png" alt="" />
               <p class="action-txt">Archived (a)</p>
             </div>
@@ -27,7 +31,15 @@
   </div>
 </template>
 
-<script></script>
+<script setup>
+import { useEmailStore } from "@/store/store";
+
+let emailStore = useEmailStore();
+
+function closeModal() {
+  emailStore.showEmailModal = !emailStore.showEmailModal;
+}
+</script>
 
 <style>
 .modal-overlay {
@@ -39,16 +51,18 @@
   bottom: 0;
   right: -100%;
   z-index: 999;
-  transition: all 0.3s ease-in-out;
-  animation: slide-in 0.3s ease-in-out forwards;
+  /* animation: slide-in 0.3s ease-in-out forwards; */
+  animation: slide 0.3s ease-in-out forwards;
 }
 
+.modal-overlay.hidden {
+  animation-direction: reverse;
+}
 .modal {
   height: 100vh;
   width: 60%;
   background-color: #fff;
   margin-left: auto;
-  transition: all 0.3s ease-in-out;
 }
 
 .details-container {
@@ -66,8 +80,6 @@
   padding-bottom: 32px;
 }
 
-
-
 .close {
   display: flex;
   align-items: center;
@@ -76,7 +88,6 @@
 .close img {
   padding-right: 12px;
 }
-
 
 .action-txt:hover {
   cursor: pointer;
@@ -99,10 +110,26 @@
 
 @keyframes slide-in {
   from {
+    opacity: 0;
     right: -100%; /* start off-screen */
   }
   to {
+    opacity: 1;
     right: 0; /* animate to bring it on-screen */
   }
+}
+
+@keyframes slide {
+  from {
+    opacity: 0;
+    right: -100%; /* start off-screen */
+  }
+  to {
+    opacity: 1;
+    right: 0; /* animate to bring it on-screen */
+  }
+  /* Reverse the animation when the element is hidden */
+  /* This is equivalent to the slide-out animation */
+  /* animation-direction: reverse; */
 }
 </style>

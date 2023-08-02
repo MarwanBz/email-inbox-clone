@@ -17,6 +17,8 @@ const plural = "s";
 //   console.log(toTrue.forEach((email)=>{
 //     email[0]
 //   }));
+
+const dd= console.log("kk");
 </script>
 
 <template>
@@ -46,7 +48,7 @@ const plural = "s";
       </div>
       <div class="read-and-archived">
         <img src="../assets/icons/mail-04.png" alt="" />
-        <p @click="emailStore.markRead()" class="action-txt">Mark as Read (r)</p>
+        <p  @click="emailStore.markRead()" class="action-txt">Mark as Read (r)</p>
         <img src="../assets/icons/trash-01.png" alt="" />
         <p class="action-txt">Archived (a)</p>
       </div>
@@ -75,5 +77,9 @@ const plural = "s";
 
 .email-selected .checkbox {
   scale: 1.5;
+}
+
+.is-read {
+  opacity: 0.5;
 }
 </style>
