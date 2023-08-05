@@ -14,18 +14,20 @@
             </div>
             <div class="read-and-archived">
               <img src="../assets/icons/mail-04.png" alt="" />
-              <p @click="emailStore.markRead()" class="action-txt">Mark as Read (r)</p>
+              <p @click="emailStore.markRead()" class="action-txt">
+                Mark as Read (r)
+              </p>
               <img src="../assets/icons/trash-01.png" alt="" />
               <p class="action-txt">Archived (a)</p>
             </div>
           </div>
         </div>
-        <h1 class="title">Lorem ipsum dolor sit amet consectetur.</h1>
-        <p class="content">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga,
-          temporibus impedit! Id dolor officiis sunt cupiditate tempora nobis
-          necessitatibus illum?
-        </p>
+        <div v-if="selectedEmail">
+          <h1 class="title">{{ selectedEmail.title }}</h1>
+          <p class="content">
+            {{ selectedEmail.content }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -35,6 +37,16 @@
 import { useEmailStore } from "@/store/store";
 
 let emailStore = useEmailStore();
+
+// to get the selected email.
+const selectedEmail = computed(() => {
+  if (emailStore.selectedEmails.length > 0) {
+    // Return the selected email.
+    return emailStore.selectedEmails[emailStore.selectedEmails.length - 1];
+  } else {
+    return null;
+  }
+});
 
 function closeModal() {
   emailStore.showEmailModal = !emailStore.showEmailModal;

@@ -24,12 +24,6 @@ emailStore.getEmails();
   <div>
     <Email @click="emailStore.showEmailModal = !emailStore.showEmailModal" />
     <div v-if="emailStore.showEmailModal"><EmailModal /></div>
-    <!-- <div v-for="email in emailStore.emails" :key="email.id">
-      {{ email.title }}
-    </div> -->
-    <!-- <div v-for="email in emails" :key="email.id">
-      {{ email.title }}
-    </div> -->
   </div>
 </template>
 
