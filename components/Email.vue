@@ -35,8 +35,6 @@ const handleRKeyUp = (event) => {
 };
 
 
-
-
 </script>
 
 <template>
@@ -44,7 +42,7 @@ const handleRKeyUp = (event) => {
     <div v-if="emailStore.isLoading">Loading....</div>
     <li
       v-else
-      :class="{ 'is-read': email.isRead }"
+      :class="{ 'email--read': email.isRead }"
       class="email"
       :key="email.id"
       @click="toggleEmailSelection(email)"
@@ -52,17 +50,21 @@ const handleRKeyUp = (event) => {
       <input
         ref="checkbox"
         :checked="email.isSelected"
-        class="checkbox"
+        class="email__checkbox"
         type="checkbox"
         @click.stop
         @change="toggleEmailSelection(email)"
       />
-      <p >{{ email.title }}</p>
+      <p class="email__title">{{ email.title }}</p>
     </li>
   </div>
 </template>
 
-<style>
+<style scoped>
+.email-container {
+  /* Add container-level styles here if needed */
+}
+
 .email {
   border-bottom: 1px solid #e5e7eb;
   border-top: 1px solid #e5e7eb;
@@ -71,22 +73,24 @@ const handleRKeyUp = (event) => {
   padding: 20px 24px;
   color: #000000;
 }
+
 .email:hover {
   background: #d1e2ff;
   cursor: pointer;
   width: 100%;
   transition: all 0.3s ease-in-out;
 }
-.email-container .email p {
+
+.email--read {
+  opacity: 0.5;
+}
+
+.email__checkbox {
+  transform: scale(1.5);
+}
+
+.email__title {
   padding-left: 12px;
   color: #000000;
-}
-
-.checkbox {
-  scale: 1.5;
-}
-
-.isRead {
-  opacity: 0.5;
 }
 </style>

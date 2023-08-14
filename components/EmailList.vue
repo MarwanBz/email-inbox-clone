@@ -35,5 +35,3 @@ const props = defineProps(['emails']);
     
   </div>
 </template>
-
-<style></style>
