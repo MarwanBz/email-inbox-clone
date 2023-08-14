@@ -4,7 +4,7 @@
     :class="{ hidden: !emailStore.showEmailModal }"
     @click="closeModal()"
   >
-    <div @click.stop="console.log('modal clicked')" class="modal">
+    <div @click.stop class="modal">
       <div class="details-container">
         <div class="details">
           <div class="modal-actions">
@@ -18,7 +18,7 @@
                 Mark as Read (r)
               </p>
               <img src="../assets/icons/trash-01.png" alt="" />
-              <p class="action-txt">Archived (a)</p>
+              <p class="action-txt" @click="emailStore.archiveEmail">Archived (a)</p>
             </div>
           </div>
         </div>
