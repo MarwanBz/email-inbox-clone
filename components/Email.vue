@@ -20,6 +20,23 @@ function toggleEmailSelection(email) {
   }
 }
 
+onMounted(() => {
+  document.addEventListener('keyup', handleRKeyUp);
+});
+
+onUnmounted(() => {
+  document.removeEventListener('keyup', handleRKeyUp);
+});
+
+const handleRKeyUp = (event) => {
+  if (event.key === 'r' ) {
+    emailStore.markRead()
+  }
+};
+
+
+
+
 </script>
 
 <template>
