@@ -41,8 +41,6 @@ function toggleEmailSelection(email) {
         @change="toggleEmailSelection(email)"
       />
       <p >{{ email.title }}</p>
-      <p>{{ email.isSelected }}</p>
-      <p>{{ email.isArchived }}</p>
     </li>
   </div>
 </template>

@@ -3,7 +3,6 @@ import { useEmailStore } from "@/store/store";
 import { reactive, computed } from "vue";
 const emailStore = useEmailStore();
 const route = useRoute();
-// const index = route.path;
 const props = defineProps(["inbox"]);
 </script>
 

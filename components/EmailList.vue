@@ -6,13 +6,6 @@ const emailStore = useEmailStore();
 emailStore.getEmails();
 
 const props = defineProps(['emails']);
-// const props = defineProps({
-//   isArchived: Boolean,
-// });
-// const towArray = computed(()=> {
-//   combinedEmails()
-// })
-console.log();
 </script>
 
 <template>
@@ -28,7 +21,7 @@ console.log();
 
     <!-- Display archived emails -->
 
-    <div v-if="emailStore.archived">
+    <div >
       <Email
         v-for="archivedEmail in emailStore.archivedEmails"
         :email="archivedEmail"

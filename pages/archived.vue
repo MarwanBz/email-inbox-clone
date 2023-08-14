@@ -4,12 +4,7 @@ import { useEmailStore } from "@/store/store";
 const route = useRoute();
 const emailStore = useEmailStore();
 
-// const emails = toRefs(emailStore.archivedEmails);
-const archivedEmails = computed(() => {
-  return emailStore.emails.filter((email) => email.isArchived);
-});
 
-// console.log(isArchived);
 </script>
 
 <template>
