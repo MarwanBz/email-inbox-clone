@@ -1,14 +1,14 @@
 <template>
-  <div
+  <div  
     class="modal-overlay"
     :class="{ hidden: !emailStore.showEmailModal }"
     @click="closeModal()"
   >
-    <div @click.stop class="modal">
+    <div  @click.stop class="modal">
       <div class="details-container">
         <div class="details">
           <div class="modal-actions">
-            <div @click="closeModal" class="close">
+            <div @keydown.esc="log" @click="closeModal" class="close">
               <img src="../assets/icons/x-close.svg" alt="" />
               <p class="action-txt">Close (Esc)</p>
             </div>
@@ -51,6 +51,20 @@ const selectedEmail = computed(() => {
 function closeModal() {
   emailStore.showEmailModal = !emailStore.showEmailModal;
 }
+
+onMounted(() => {
+  document.addEventListener('keyup', handleKeyUp);
+});
+
+onUnmounted(() => {
+  document.removeEventListener('keyup', handleKeyUp);
+});
+
+const handleKeyUp = (event) => {
+  if (event.key === 'Escape') {
+    closeModal();
+  }
+};
 </script>
 
 <style>
