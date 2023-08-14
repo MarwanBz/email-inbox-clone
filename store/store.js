@@ -1,5 +1,3 @@
-// import { defineStore } from "pinia";
-
 import { defineStore } from "pinia";
 
 // turn the json array of objects into a valid js array
@@ -8,10 +6,12 @@ export const useEmailStore = defineStore("emails", {
   state: () => {
     return {
       isSelectAllChecked: false,
+      archivedEmails: ref([]),
       selectedEmails: ref([]),
       emails: ref([]),
       isLoading: false,
-      showEmailModal : false
+      showEmailModal: false,
+      isArchived: false,
     };
   },
 
@@ -21,7 +21,7 @@ export const useEmailStore = defineStore("emails", {
       this.emails = (await import("@/data/data.json")).default;
       this.isLoading = false;
     },
-    
+
     toggleSelected(email) {
       const isSelected = this.isSelected;
       const index = this.selectedEmails.indexOf(email);
@@ -62,7 +62,28 @@ export const useEmailStore = defineStore("emails", {
     },
     emailDetails() {
       this.selectedEmails.forEach((email) => {
-        console.log(email.title)
+        console.log(email.title);
+      });
+    },
+    archiveEmail() {
+      this.selectedEmails.forEach((email) => {
+        if (email.isArchived === false) {
+          email.isArchived = true;
+          email.isSelected = false;
+          // Add email to 'archivedEmails' state
+          this.archivedEmails.push(email);
+
+          // Remove email from 'selectedEmails' state
+          const index = this.selectedEmails.indexOf(email);
+          if (index >= 0) {
+            this.selectedEmails.splice(index, 1);
+          }
+          // / Remove email from 'emails' state (assuming it's also stored there)
+          const emailIndex = this.emails.indexOf(email);
+          if (emailIndex >= 0) {
+            this.emails.splice(emailIndex, 1);
+          }
+        }
       });
     },
   },
@@ -71,54 +92,11 @@ export const useEmailStore = defineStore("emails", {
     emailsNumber() {
       return this.selectedEmails.length;
     },
+    // archivedEmailsNumber() {
+    //   return this.archivedEmailsNumber.length;
+    // },
+    archived() {
+      return this.archivedEmails.filter((email) => email.isArchived ===true );
+    },
   },
 });
-
-// import emails from "../data/data.json";
-
-// export const useEmailStore = defineStore("emails", () => {
-//   const isSelected = [];
-//   const selectedEmails = ref([]);
-//   const emails = [];
-//   let isLoading = ref(false);
-
-//   async function getEmails() {
-//     isLoading = true;
-//     // emails.value = (await import("@/data/data.json")).default;
-//     emails.push(...(await import("@/data/data.json")).default);
-//     isLoading = false;
-//     console.log(emails);
-//   }
-
-//   function toggleSelected(email) {
-//     const index = selectedEmails.value.indexOf(email);
-//     if (index >= 0) {
-//       selectedEmails.value.splice(index, 1);
-//     } else {
-//       selectedEmails.value.push(email);
-//     }
-//   }
-
-//   function selectAll() {
-//     selectedEmails.value = emails.slice();
-//     // toggle isSelected property of all selected emails to true
-//     selectedEmails.value.forEach((email) => {
-//       email.isSelected = true;
-//     });
-//   }
-
-//   const selectedEmailsRef = toRef(selectedEmails);
-
-//   return {
-//     isSelected,
-//     selectedEmails,
-//     emails,
-//     isLoading,
-//     getEmails,
-//     toggleSelected,
-//     selectAll,
-//     selectedEmailsRef,
-//     calc: computed(() => selectedEmails.length),
-//     m: computed(() => emails.length),
-//   };
-// });

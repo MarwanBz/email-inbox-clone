@@ -13,7 +13,7 @@
 @font-face {
   font-family: "PlusJakartaSans";
   src: local("PlusJakartaSans"),
-    url('/public/fonts/PlusJakartaSans-VariableFont_wght.ttf') format("truetype");
+    url('/assets/fonts/PlusJakartaSans-VariableFont_wght.ttf') format("truetype");
 }
 
 html {
@@ -21,7 +21,8 @@ html {
   font-weight: light;
 }
 
-input[type="checkbox"] {
-  border-color: red;
+
+.active-page {
+  background-color: #d6e2fb;
 }
 

@@ -1,8 +1,10 @@
 <script setup>
+import { useEmailStore } from "@/store/store";
 import { reactive, computed } from "vue";
+const emailStore = useEmailStore();
 const route = useRoute();
+// const index = route.path;
 const props = defineProps(["inbox"]);
-
 </script>
 
 <template>
@@ -13,27 +15,31 @@ const props = defineProps(["inbox"]);
     <aside>
       <ul>
         <div>
-          <li :class="{ isActive }">
-            <div>
-              <i><img src="../assets/icons/inbox-01.png" alt="" /></i
-              ><NuxtLink to="/">{{ inbox }}</NuxtLink>
-            </div>
-            <span>10</span>
-          </li>
-          <li>
-            <div>
-              <i><img src="../assets/icons/archive.png" alt="" /></i
-              ><NuxtLink to="/about">Archived</NuxtLink>
-            </div>
-            <span>10</span>
-          </li>
+          <NuxtLink to="/">
+            <li :class="route.path === '/' ? 'active-page' : '' ">
+              <div>
+                <i><img src="../assets/icons/inbox-01.png" alt="" /></i
+                >{{ inbox }}
+              </div>
+              <span>{{ emailStore.emails.length }}</span>
+            </li>
+          </NuxtLink>
+          <NuxtLink to="/archived">
+            <li :class="route.path === '/' ? '' : 'active-page' " >
+              <div>
+                <i><img src="../assets/icons/archive.png" alt="" /></i>
+                Archived
+              </div>
+              <span>{{ emailStore.archivedEmails == 0? "Empty" : emailStore.archivedEmails.length }}</span>
+            </li>
+          </NuxtLink>
         </div>
         <li>
           <div>
             <i><img src="../assets/icons/log-out-04.png" alt="" /></i
             ><NuxtLink to="/">Logout</NuxtLink>
           </div>
-          <span>10</span>
+          <!-- <span>10</span> -->
         </li>
       </ul>
     </aside>
@@ -41,6 +47,9 @@ const props = defineProps(["inbox"]);
 </template>
 
 <style scoped>
+a {
+  color: #000;
+}
 .sidebar {
   background-color: #f8fafc;
   padding: 20px 0;
@@ -77,7 +86,7 @@ li {
   display: flex;
   width: 100%;
   padding: 12px 24px;
-  background-color: rgb(166, 166, 166);
+  /* background-color: rgb(166, 166, 166); */
   border-radius: 54px;
   justify-content: space-between;
   align-items: center;

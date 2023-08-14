@@ -1,9 +1,11 @@
 <template>
   <div class="layout">
     <div class="sidebar-container">
-      <SideBar inbox="Inbox"/>
+      <SideBar inbox="Inbox" />
     </div>
+
     <div class="content">
+      <EmailManage />
       <slot />
     </div>
   </div>

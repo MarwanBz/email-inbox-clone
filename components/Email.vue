@@ -3,6 +3,9 @@ import { ref } from "vue";
 import { useEmailStore } from "~/store/store";
 const emailStore = useEmailStore();
 const checkboxRef = ref(null);
+const props =  defineProps({
+  email: Object,
+})
 
 function toggleEmailSelection(email) {
   // Toggle email.selected.
@@ -17,7 +20,6 @@ function toggleEmailSelection(email) {
   }
 }
 
-console.log(emailStore.emails);
 </script>
 
 <template>
@@ -27,7 +29,6 @@ console.log(emailStore.emails);
       v-else
       :class="{ 'is-read': email.isRead }"
       class="email"
-      v-for="email in emailStore.emails"
       :key="email.id"
       @click="toggleEmailSelection(email)"
     >
@@ -39,8 +40,9 @@ console.log(emailStore.emails);
         @click.stop
         @change="toggleEmailSelection(email)"
       />
-      <p>{{ email.title }}</p>
+      <p >{{ email.title }}</p>
       <p>{{ email.isSelected }}</p>
+      <p>{{ email.isArchived }}</p>
     </li>
   </div>
 </template>
