@@ -8,6 +8,18 @@ Welcome to the **Email Inbox Clone** project! This README provides an overview o
 
 Email Inbox Clone is a web application that simulates an email inbox interface. It allows users to view and interact with their emails, mark them as read, and archive them.
 
+
+## 💡 Technologies Used
+
+The Email Inbox Clone project is built using the following technologies:
+
+- [Vue 3](https://vuejs.org/): A progressive JavaScript framework for building user interfaces.
+- [Nuxt 3](https://nuxtjs.com/): A modern web framework for building server-side rendered (SSR) and static websites using Vue.js.
+- [Pinia](https://pinia.vuejs.org/): A state management system for Vue 3 applications.
+- [GitHub Pages](https://pages.github.com/): Used for deploying and hosting the project.
+
+Feel free to explore these technologies further to learn more about how they were utilized in this project.
+
 ## 🚀 Getting Started
 
 To get started with the project, follow these steps:
