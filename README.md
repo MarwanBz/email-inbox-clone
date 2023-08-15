@@ -52,7 +52,7 @@ For more information on deployment, check out the deployment documentation.
 ```
 
 🎨 Figma Design
-The project design has been implemented based on the Figma design you provided. You can view the design on Figma using the following link:
+The project design has been implemented based on this Figma design. You can view the design on Figma using the following link:
 
 - [**Figma Design for Email Inbox Clone**](https://www.figma.com/proto/ROqMuLDQ6Ur6jL5zkfhTqX/Vue-Test?type=design&node-id=2-1660&t=9M6Axyunkng76svf-6)
 
